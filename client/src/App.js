@@ -4,9 +4,10 @@ import React from "react";
 import Notifications from "./components/Notifications";
 import Options from "./components/Options";
 import VideoPlayer from "./components/VideoPlayer";
+import "./styles/app.css";
 
 const useStyles = makeStyles((theme) => ({
-    appBar: {
+    wrapperAppBar: {
         borderRadius: 15,
         margin: "30px 100px",
         display: "flex",
@@ -20,26 +21,13 @@ const useStyles = makeStyles((theme) => ({
             width: "90%",
         },
     },
-    image: {
-        marginLeft: "15px",
-    },
-    wrapper: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-    },
 }));
 
 const App = () => {
     const classes = useStyles();
     return (
-        <div className={classes.wrapper}>
-            <AppBar
-                className={classes.appBar}
-                position="static"
-                color="inherit"
-            >
+        <div className="wrapper">
+            <AppBar className={classes.wrapperAppBar} position="static" color="inherit">
                 <Typography variant="h2" align="center">
                     Video Chat
                 </Typography>

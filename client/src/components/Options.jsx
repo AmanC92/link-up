@@ -13,10 +13,6 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../SocketContext";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-    },
     gridContainer: {
         width: "100%",
         [theme.breakpoints.down("xs")]: {
@@ -30,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             width: "80%",
         },
-    },
-    margin: {
-        marginTop: 20,
     },
     padding: {
         padding: 20,
@@ -52,7 +45,7 @@ const Options = ({ children }) => {
     return (
         <Container className={classes.container}>
             <Paper elevation={10} className={classes.paper}>
-                <form className={classes.root} noValidate autoComplete="off">
+                <form className="form-root" noValidate autoComplete="off">
                     <Grid container className={classes.gridContainer}>
                         <Grid item xs={12} md={6} className={classes.padding}>
                             <Typography gutterBottom variant="h6">
@@ -64,10 +57,7 @@ const Options = ({ children }) => {
                                 onChange={(e) => setName(e.target.value)}
                                 fullWidth
                             />
-                            <CopyToClipboard
-                                text={me}
-                                className={classes.margin}
-                            >
+                            <CopyToClipboard text={me} className="form-button">
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -97,7 +87,7 @@ const Options = ({ children }) => {
                                     }
                                     fullWidth
                                     onClick={leaveCall}
-                                    className={classes.margin}
+                                    className="form-button"
                                 >
                                     Hang Up
                                 </Button>
@@ -108,7 +98,7 @@ const Options = ({ children }) => {
                                     startIcon={<Phone fontSize="large" />}
                                     fullWidth
                                     onClick={() => callUser(idToCall)}
-                                    className={classes.margin}
+                                    className="form-button"
                                 >
                                     Call
                                 </Button>
