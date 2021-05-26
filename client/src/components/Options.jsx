@@ -11,6 +11,7 @@ import { Assignment, Phone, PhoneDisabled } from "@material-ui/icons";
 import React, { useContext, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../SocketContext";
+import "../styles/options.css";
 
 const useStyles = makeStyles((theme) => ({
     gridContainer: {
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             width: "80%",
         },
+    },
+    margin: {
+        marginTop: 20,
     },
     padding: {
         padding: 20,
@@ -57,7 +61,7 @@ const Options = ({ children }) => {
                                 onChange={(e) => setName(e.target.value)}
                                 fullWidth
                             />
-                            <CopyToClipboard text={me} className="form-button">
+                            <CopyToClipboard text={me} className={classes.margin}>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -87,7 +91,7 @@ const Options = ({ children }) => {
                                     }
                                     fullWidth
                                     onClick={leaveCall}
-                                    className="form-button"
+                                    className={classes.margin}
                                 >
                                     Hang Up
                                 </Button>
@@ -98,7 +102,7 @@ const Options = ({ children }) => {
                                     startIcon={<Phone fontSize="large" />}
                                     fullWidth
                                     onClick={() => callUser(idToCall)}
-                                    className="form-button"
+                                    className={classes.margin}
                                 >
                                     Call
                                 </Button>

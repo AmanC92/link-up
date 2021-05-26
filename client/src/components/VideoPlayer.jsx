@@ -2,6 +2,7 @@ import { Grid, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useContext } from "react";
 import { SocketContext } from "../SocketContext";
+import "../styles/videoplayer.css";
 
 const useStyles = makeStyles((theme) => ({
     video: {
