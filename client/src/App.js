@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 import Meeting from "./Pages/Meeting";
@@ -9,17 +10,7 @@ const App = () => {
     return (
         <Router>
             <div className="container">
-                <nav>
-                    <ul style={{ display: "inline", marginRight: "2rem" }}>
-                        <Link to="/">Home</Link>
-                    </ul>
-                    <ul style={{ display: "inline", marginRight: "2rem" }}>
-                        <Link to="/about">About</Link>
-                    </ul>
-                    <ul style={{ display: "inline", marginRight: "2rem" }}>
-                        <Link to="/meeting">Meeting</Link>
-                    </ul>
-                </nav>
+                <Navbar />
                 <Switch>
                     <Route path="/about" component={About} />
                     <Route path="/meeting" component={Meeting} />
