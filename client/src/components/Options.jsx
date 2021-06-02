@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     container: {
-        width: "600px",
-        margin: "35px 0",
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
         padding: 0,
         [theme.breakpoints.down("xs")]: {
             width: "80%",
@@ -61,7 +62,10 @@ const Options = ({ children }) => {
                                 onChange={(e) => setName(e.target.value)}
                                 fullWidth
                             />
-                            <CopyToClipboard text={me} className={classes.margin}>
+                            <CopyToClipboard
+                                text={me}
+                                className={classes.margin}
+                            >
                                 <Button
                                     variant="contained"
                                     color="primary"

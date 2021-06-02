@@ -8,6 +8,21 @@ nav {
     z-index: 99;
 }
 
+.navbar-menu-bars {
+    display: none;
+    cursor: pointer;
+}
+
+.navbar-menu-bars.fa-bars {
+    transform: rotate(360deg);
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-menu-bars.fa-times {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+}
+
 .logo {
     font-weight: 1000;
     font-size: 25px;
@@ -45,4 +60,46 @@ nav {
     background-color: white;
     color: black;
     transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+    .logo {
+        font-size: 20px;
+    }
+    .navbar-link {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-menu-bars {
+        display: flex;
+    }
+    .menu-list {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        right: 0;
+        top: 64px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .navbar-link {
+        display: block;
+        margin-bottom: 20px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .navbar-link:last-child {
+        margin-bottom: 0px;
+    }
+
+    .menu-list.close {
+        right: -100%;
+        transition: all 0.5s ease-in-out;
+    }
 }

@@ -1,0 +1,9 @@
+.homeDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(30vh);
+    color: white;
+}
