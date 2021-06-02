@@ -15,3 +15,8 @@ Creating a realtime video and chat application.
 -   [ ] Next.js integration
 -   [ ] Docker integration
 -   [ ] Deploy application
+
+
+## Bugs
+
+- [] Copy-to-clipboard not working
