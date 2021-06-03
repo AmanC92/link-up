@@ -7,13 +7,13 @@ Creating a realtime video and chat application.
 -   [x] Have separated style sheets
 -   [x] React-router
 -   [x] Navbar
+-   [x] Docker integration
 -   [ ] landing page
 -   [ ] about page
 -   [ ] demo button
 -   [ ] text chat
 -   [ ] more than two participants
 -   [ ] Next.js integration
--   [ ] Docker integration
 -   [ ] Deploy application
 
 
