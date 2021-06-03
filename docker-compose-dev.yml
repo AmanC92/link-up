@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile.dev
+        command: yarn dev
+        ports:
+            - 4000:4000
+        volumes:
+            - ./server/src:/app/server/src:ro
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile.dev
+        command: yarn start
+        ports:
+            - 3000:3000
+        volumes:
+            - ./client/src:/app/client/src:ro
+        depends_on:
+            - server
