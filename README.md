@@ -16,7 +16,7 @@ Creating a realtime video and chat application.
 -   [ ] Next.js integration
 -   [ ] Deploy application
 
+## Bugs to Fix
 
-## Bugs
-
-- [] Copy-to-clipboard not working
+-   [ ] Copy-to-clipboard not working
+-   [x] On meeting exit video feed and audio is left open.

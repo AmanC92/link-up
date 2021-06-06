@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Assignment, Phone, PhoneDisabled } from "@material-ui/icons";
 import React, { useContext, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { SocketContext } from "../SocketContext";
+import { SocketContext } from "../context/SocketContext";
 import "../styles/options.css";
 
 const useStyles = makeStyles((theme) => ({
