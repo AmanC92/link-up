@@ -1,4 +1,5 @@
 import React from "react";
+import ChatBox from "../components/ChatBox";
 import Notifications from "../components/Notifications";
 import Options from "../components/Options";
 import VideoPlayer from "../components/VideoPlayer";
@@ -10,6 +11,7 @@ const Meeting = () => {
         <div className="wrapper">
             <ContextProvider>
                 <VideoPlayer />
+                <ChatBox />
                 <Options>
                     <Notifications />
                 </Options>
