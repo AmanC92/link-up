@@ -102,10 +102,7 @@ const ContextProvider = ({ children }) => {
     };
 
     const sendMessage = () => {
-<<<<<<< HEAD
         console.log("sending message");
-=======
->>>>>>> aee05d3 (Set up wireframe for chatting.)
         const { name, message } = history;
         socket.emit("message", { name, message });
         setHistory({ message: "", name });
