@@ -13,28 +13,33 @@ const ContextProvider = ({ children }) => {
     const [name, setName] = useState("");
     const [call, setCall] = useState({});
     const [me, setMe] = useState("");
+    const [history, setHistory] = useState({ message: "", name: "" });
+    const [chat, setChat] = useState([]);
 
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
 
     useEffect(() => {
-        navigator.mediaDevices
-            .getUserMedia({ video: true, audio: true })
-            .then((currentStream) => {
-                setStream(currentStream);
+        if (!stream) {
+            navigator.mediaDevices
+                .getUserMedia({ video: true, audio: true })
+                .then((currentStream) => {
+                    setStream(currentStream);
 
-                myVideo.current.srcObject = currentStream;
-            });
-
+                    myVideo.current.srcObject = currentStream;
+                });
+        }
+        socket.on("message", ({ name, message }) => {
+            setChat([...chat, { name, message }]);
+        });
         socket.on("me", (id) => setMe(id));
 
         socket.on("callUser", ({ from, name: callerName, signal }) => {
             setCall({ isReceivingCall: true, from, name: callerName, signal });
         });
-    }, []);
 
-    useEffect(() => {
+        // Clean-up -> turn video & audio off if not on meeting page.
         return () => {
             if (stream) {
                 stream.getTracks().forEach((track) => {
@@ -42,7 +47,7 @@ const ContextProvider = ({ children }) => {
                 });
             }
         };
-    }, [stream]);
+    }, [stream, chat]);
 
     const answerCall = () => {
         setCallAccepted(true);
@@ -95,6 +100,12 @@ const ContextProvider = ({ children }) => {
         window.location.reload();
     };
 
+    const sendMessage = () => {
+        const { name, message } = history;
+        socket.emit("message", { name, message });
+        setHistory({ message: "", name });
+    };
+
     return (
         <SocketContext.Provider
             value={{
@@ -110,6 +121,11 @@ const ContextProvider = ({ children }) => {
                 callUser,
                 leaveCall,
                 answerCall,
+                sendMessage,
+                history,
+                setHistory,
+                chat,
+                setChat,
             }}
         >
             {children}
