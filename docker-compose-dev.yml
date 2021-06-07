@@ -26,11 +26,6 @@ services:
         command: yarn dev
         volumes:
             - ./server:/app/server:ro
-        restart: on-failure
-        container_name: 
-            server
-        image:
-            amanc92/link-up:server
     client:
         build:
             context: ./client
