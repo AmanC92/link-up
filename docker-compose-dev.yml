@@ -9,7 +9,7 @@ services:
         ports:
             - 4000:4000
         volumes:
-            - ./server/src:/app/server/src:ro
+            - ./server:/app/server:ro
     client:
         build:
             context: ./client
