@@ -26,8 +26,11 @@ services:
         command: yarn dev
         volumes:
             - ./server:/app/server:ro
+<<<<<<< HEAD
         container_name: 
             backend
+=======
+>>>>>>> a44c299 (Changed development volume to point to all contents in server/ folder as server.js was not being refreshed.)
     client:
         build:
             context: ./client
