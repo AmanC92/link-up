@@ -20,3 +20,4 @@ Creating a realtime video and chat application.
 
 -   [ ] Copy-to-clipboard not working
 -   [x] On meeting exit video feed and audio is left open.
+-   [ ] Message from server for chat not being caught.

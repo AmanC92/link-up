@@ -10,7 +10,7 @@ const ContextProvider = ({ children }) => {
     const [callAccepted, setCallAccepted] = useState(false);
     const [callEnded, setCallEnded] = useState(false);
     const [stream, setStream] = useState(null);
-    const [name, setName] = useState("");
+    const [name, setName] = useState("Name");
     const [call, setCall] = useState({});
     const [me, setMe] = useState("");
     const [history, setHistory] = useState({ message: "", name: "" });
@@ -31,6 +31,7 @@ const ContextProvider = ({ children }) => {
                 });
         }
         socket.on("message", ({ name, message }) => {
+            console.log("setting chat");
             setChat([...chat, { name, message }]);
         });
         socket.on("me", (id) => setMe(id));
@@ -101,6 +102,7 @@ const ContextProvider = ({ children }) => {
     };
 
     const sendMessage = () => {
+        console.log("sending message");
         const { name, message } = history;
         socket.emit("message", { name, message });
         setHistory({ message: "", name });
