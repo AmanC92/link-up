@@ -42,7 +42,8 @@ io.on("connection", (socket) => {
     });
 
     socket.on("message", ({ name, message }) => {
-        io.emit("messaage", { name, message });
+        console.log("receiving message");
+        socket.emit("messaage", { name, message });
     });
 });
 
