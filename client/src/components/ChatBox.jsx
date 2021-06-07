@@ -3,11 +3,12 @@ import React, { useContext } from "react";
 import { SocketContext } from "../context/SocketContext";
 
 const ChatBox = () => {
-    const { history, setHistory, chat, sendMessage } =
+    const { history, setHistory, chat, sendMessage, name } =
         useContext(SocketContext);
-
+    console.log(name);
     const onTextChange = (e) => {
         setHistory({ ...history, [e.target.name]: e.target.value });
+        console.log(history);
     };
 
     const onMessageSubmit = (e) => {
