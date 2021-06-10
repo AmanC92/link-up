@@ -28,6 +28,8 @@ services:
         #     - 4000:4000
         volumes:
             - ./server:/app/server:ro
+        container_name: 
+            backend
     client:
         build:
             context: ./client
@@ -37,10 +39,7 @@ services:
         #     - 3000:3000
         volumes:
             - ./client/src:/app/client/src:ro
-        restart: on-failure
         container_name: 
             client
-        image:
-            amanc92/link-up:client
         depends_on:
             - server
