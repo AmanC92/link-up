@@ -26,6 +26,8 @@ services:
         command: yarn dev
         volumes:
             - ./server:/app/server:ro
+        container_name: 
+            backend
     client:
         build:
             context: ./client
@@ -33,10 +35,7 @@ services:
         command: yarn start
         volumes:
             - ./client/src:/app/client/src:ro
-        restart: on-failure
         container_name: 
             client
-        image:
-            amanc92/link-up:client
         depends_on:
             - server
