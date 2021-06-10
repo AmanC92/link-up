@@ -9,7 +9,9 @@ services:
         ports:
             - 4000:4000
         volumes:
-            - ./server/src:/app/server/src:ro
+            - ./server:/app/server:ro
+        container_name: 
+            backend
     client:
         build:
             context: ./client
@@ -19,5 +21,7 @@ services:
             - 3000:3000
         volumes:
             - ./client/src:/app/client/src:ro
+        container_name: 
+            client
         depends_on:
             - server
