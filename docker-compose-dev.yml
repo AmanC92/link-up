@@ -28,8 +28,6 @@ services:
         #     - 4000:4000
         volumes:
             - ./server:/app/server:ro
-        container_name: 
-            backend
     client:
         build:
             context: ./client
