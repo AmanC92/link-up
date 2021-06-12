@@ -26,11 +26,11 @@ services:
         command: yarn dev
         volumes:
             - ./server:/app/server:ro
-<<<<<<< HEAD
+        restart: on-failure
         container_name: 
-            backend
-=======
->>>>>>> a44c299 (Changed development volume to point to all contents in server/ folder as server.js was not being refreshed.)
+            server
+        image:
+            amanc92/link-up:server
     client:
         build:
             context: ./client
@@ -38,7 +38,10 @@ services:
         command: yarn start
         volumes:
             - ./client/src:/app/client/src:ro
+        restart: on-failure
         container_name: 
             client
+        image:
+            amanc92/link-up:client
         depends_on:
             - server
