@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 // Sockets are used for realtime data transmission.
 io.on("connection", (socket) => {
-    socket.emit("me", socket.id);
+    console.log(`User ${socket.id} is connected`);
 
     socket.on("disconnect", () => {
         socket.broadcast.emit("callended");
@@ -44,6 +44,10 @@ io.on("connection", (socket) => {
     socket.on("message", ({ name, message }) => {
         console.log("receiving message");
         socket.emit("messaage", { name, message });
+    });
+
+    socket.on("me", () => {
+        socket.emit("me", socket.id);
     });
 });
 

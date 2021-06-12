@@ -21,6 +21,23 @@ const ContextProvider = ({ children }) => {
     const connectionRef = useRef();
 
     useEffect(() => {
+        socket.on("message", ({ name, message }) => {
+            setChat([...chat, { name, message }]);
+        });
+
+        socket.on("me", (id) => {
+            setMe(id);
+        });
+
+        socket.on("callUser", ({ from, name: callerName, signal }) => {
+            setCall({ isReceivingCall: true, from, name: callerName, signal });
+        });
+
+        // On initial load if sock
+        if (!me) {
+            socket.emit("me");
+        }
+
         if (!stream) {
             navigator.mediaDevices
                 .getUserMedia({ video: true, audio: true })
@@ -30,15 +47,6 @@ const ContextProvider = ({ children }) => {
                     myVideo.current.srcObject = currentStream;
                 });
         }
-        socket.on("message", ({ name, message }) => {
-            console.log("setting chat");
-            setChat([...chat, { name, message }]);
-        });
-        socket.on("me", (id) => setMe(id));
-
-        socket.on("callUser", ({ from, name: callerName, signal }) => {
-            setCall({ isReceivingCall: true, from, name: callerName, signal });
-        });
 
         // Clean-up -> turn video & audio off if not on meeting page.
         return () => {
@@ -46,9 +54,10 @@ const ContextProvider = ({ children }) => {
                 stream.getTracks().forEach((track) => {
                     track.stop();
                 });
+                setStream(null);
             }
         };
-    }, [stream, chat]);
+    }, [stream, chat, me]);
 
     const answerCall = () => {
         setCallAccepted(true);
