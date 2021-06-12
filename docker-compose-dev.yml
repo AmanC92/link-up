@@ -24,8 +24,6 @@ services:
             context: ./server
             dockerfile: Dockerfile.dev
         command: yarn dev
-        # ports:
-        #     - 4000:4000
         volumes:
             - ./server:/app/server:ro
         restart: on-failure
@@ -38,8 +36,6 @@ services:
             context: ./client
             dockerfile: Dockerfile.dev
         command: yarn start
-        # ports:
-        #     - 3000:3000
         volumes:
             - ./client/src:/app/client/src:ro
         restart: on-failure
