@@ -18,6 +18,6 @@ Creating a realtime video and chat application.
 
 ## Bugs to Fix
 
--   [ ] Copy-to-clipboard not working
+-   [ ] ~Copy-to-clipboard not working~ Overall bug with copy and call not working on initial app load.
 -   [x] On meeting exit video feed and audio is left open.
 -   [ ] Message from server for chat not being caught.
