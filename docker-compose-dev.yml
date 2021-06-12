@@ -1,17 +1,36 @@
 version: "3"
 
 services:
+    nginx:
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile.dev
+        ports:
+            - 80:80
+        restart: always
+        container_name:
+            routing
+        image:
+            amanc92/link-up:nginx
+        container_name:
+            nginx
+        image:
+            amanc92/link-up:nginx
+        depends_on:
+            - server
+            - client
     server:
         build:
             context: ./server
             dockerfile: Dockerfile.dev
         command: yarn dev
-        ports:
-            - 4000:4000
+        # ports:
+        #     - 4000:4000
         volumes:
             - ./server:/app/server:ro
+        restart: on-failure
         container_name: 
-            backend
+            server
         image:
             amanc92/link-up:server
     client:
@@ -19,12 +38,13 @@ services:
             context: ./client
             dockerfile: Dockerfile.dev
         command: yarn start
-        ports:
-            - 3000:3000
+        # ports:
+        #     - 3000:3000
         volumes:
             - ./client/src:/app/client/src:ro
+        restart: on-failure
         container_name: 
-            frontend
+            client
         image:
             amanc92/link-up:client
         depends_on:

@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 
 const SocketContext = createContext();
 
-const socket = io("http://localhost:4000");
+const socket = io({ path: "/socket.io" });
 
 const ContextProvider = ({ children }) => {
     const [callAccepted, setCallAccepted] = useState(false);
