@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    nginx:
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - 80:80
+        restart: always
+        container_name: nginx
+        image: amanc92/link-up:nginx
+        depends_on:
+            - server
+            - client
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile.prod
+        restart: on-failure
+        container_name: server
+        image: amanc92/link-up:server
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile.prod
+        restart: on-failure
+        container_name: client
+        image: amanc92/link-up:client
+        depends_on:
+            - server

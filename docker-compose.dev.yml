@@ -4,18 +4,12 @@ services:
     nginx:
         build:
             context: ./nginx
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
         ports:
             - 80:80
         restart: always
-        container_name:
-            routing
-        image:
-            amanc92/link-up:nginx
-        container_name:
-            nginx
-        image:
-            amanc92/link-up:nginx
+        container_name: nginx
+        image: amanc92/dev-link-up:nginx
         depends_on:
             - server
             - client
@@ -27,10 +21,8 @@ services:
         volumes:
             - ./server:/app/server:ro
         restart: on-failure
-        container_name: 
-            server
-        image:
-            amanc92/link-up:server
+        container_name: server
+        image: amanc92/dev-link-up:server
     client:
         build:
             context: ./client
@@ -39,9 +31,7 @@ services:
         volumes:
             - ./client/src:/app/client/src:ro
         restart: on-failure
-        container_name: 
-            client
-        image:
-            amanc92/link-up:client
+        container_name: client
+        image: amanc92/dev-link-up:client
         depends_on:
             - server

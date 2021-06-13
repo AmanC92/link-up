@@ -1,0 +1,5 @@
+# Ignore all private keys and env variables
+/SSH
+/ssh
+*.pem
+*.env

@@ -1,9 +1,9 @@
 FROM node:current-alpine
 
 # Documenting we are using port 3000
-EXPOSE 3000
+EXPOSE 4000
 
-WORKDIR /app
+WORKDIR /app/server
 
 COPY package*.json ./
 RUN yarn install

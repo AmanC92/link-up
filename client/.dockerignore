@@ -4,6 +4,6 @@ Dockerfile.dev
 .dockerignore
 .gitignore
 
-# Artifactrs that will be built during image creation.
+# Artifacts that will be built during image creation.
 build
 node_modules
