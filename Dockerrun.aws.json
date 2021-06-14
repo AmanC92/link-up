@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "nginx",
+            "image": "amanc92/link-up:nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"],
+            "memory": 100
+        },
+        {
+            "name": "client",
+            "image": "amanc92/link-up:client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 300
+        },
+        {
+            "name": "server",
+            "image": "amanc92/link-up:server",
+            "hostname": "server",
+            "essential": false,
+            "memory": 300
+        }
+    ]
+}
