@@ -15,6 +15,7 @@ Creating a realtime video and chat application.
 -   [ ] more than two participants
 -   [ ] Next.js integration
 -   [ ] Deploy application
+-   [ ] CI CD Pipline
 
 ## Bugs to Fix
 
