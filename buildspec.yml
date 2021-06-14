@@ -12,8 +12,8 @@ phases:
             # Snyk auth
             # - ./snyk config set api="$SNYK_AUTH_TOKEN"
             # Build Docker image for testing
-            - echo Building docker images for testing...
-            - docker-compose -f docker-compose.dev.yml build
+            # - echo Building docker images for testing...
+            # - docker-compose -f docker-compose.dev.yml build
     build:
         commands:
             - echo Build started on `date`
@@ -43,3 +43,6 @@ phases:
             # Take these images and push them to Docker hub
             - echo Pushing the Docker images...
             - docker-compose push
+artifacts:
+    files:
+        - "**/*"
