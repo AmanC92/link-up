@@ -1,5 +1,9 @@
 {
     "AWSEBDockerrunVersion": 2,
+    "Authentication": {
+        "Bucket": "aman-docker",
+        "Key": "index.docker.io/.dockercfg"
+    },
     "containerDefinitions": [
         {
             "name": "nginx",
