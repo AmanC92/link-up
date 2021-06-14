@@ -8,6 +8,7 @@ Creating a realtime video and chat application.
 -   [x] React-router
 -   [x] Navbar
 -   [x] Docker integration
+-   [x] Changing application name
 -   [ ] landing page
 -   [ ] about page
 -   [ ] demo button
