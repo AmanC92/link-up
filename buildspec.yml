@@ -13,7 +13,7 @@ phases:
       # - ./snyk config set api="$SNYK_AUTH_TOKEN"
       # Build Docker image for testing
       - echo Building docker images for testing...
-      - docker compose -f docker-compose.dev.yml build
+      - docker-compose -f docker-compose.dev.yml build
   build:
     commands:
       - echo Build started on `date`
@@ -35,7 +35,7 @@ phases:
       # - ./snyk monitor --docker lukondefmwila/nodejs-test:latest --file=./backend/Dockerfile.dev
       # Build the Docker images
       - echo Building the production Docker image...
-      - docker compose build
+      - docker-compose build
       # Log in to the Docker CLI
       - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
   post_build:
