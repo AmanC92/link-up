@@ -1,4 +1,4 @@
-# Video Chat Application
+# Link Up
 
 Creating a realtime video and chat application.
 
