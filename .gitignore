@@ -3,3 +3,6 @@
 /ssh
 *.pem
 *.env
+
+# Ignore mac artificats
+.DS_Store
