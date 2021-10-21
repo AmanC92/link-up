@@ -17,6 +17,7 @@ Real time video-chat application via web sockets. Deployed on AWS via CI/CD pipe
 -   [ ] Next.js integration
 -   [x] Deploy application
 -   [ ] CI tests
+-   [x] Add new environment
 
 ## Bugs to Fix
 
